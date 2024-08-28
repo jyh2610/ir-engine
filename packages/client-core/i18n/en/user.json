@@ -284,7 +284,11 @@
   "oauth": {
     "authenticating": "Authenticating...",
     "authFailed": "{{service}} authentication failed.",
-    "redirectToRoot": "Return to Home"
+    "redirectToRoot": "Return to Home",
+    "promptForConnection": "Connect to existing account?",
+    "askConnection": "{{email}} is already associated with an account. Would you like to link this {{service}} SSO to that account?",
+    "acceptConnection": "Yes",
+    "declineConnection": "No (create new account)"
   },
   "magikLink": {
     "wait": "Please wait a moment while processing..."

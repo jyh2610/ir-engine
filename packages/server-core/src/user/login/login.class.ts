@@ -80,6 +80,9 @@ export class LoginService implements ServiceInterface {
         return { error: 'Login link has expired' }
       }
       const identityProvider = await this.app.service(identityProviderPath).get(result.data[0].identityProviderId)
+      if (result.data[0].linkedUser) {
+
+      }
       await makeInitialAdmin(this.app, identityProvider.userId)
       const apiKey = (await this.app.service(userApiKeyPath).find({
         query: {
@@ -91,8 +94,8 @@ export class LoginService implements ServiceInterface {
           userId: identityProvider.userId
         })
       const token = await this.app
-        .service('authentication')
-        .createAccessToken({}, { subject: identityProvider.id.toString() })
+          .service('authentication')
+          .createAccessToken({}, {subject: identityProvider.id.toString()})
 
       await this.app.service(identityProviderPath).remove(null, {
         query: {
